@@ -6,6 +6,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 :focus {
@@ -19,7 +20,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .logo {
@@ -349,6 +350,10 @@ header h1 {
 }
 
 @media (max-width: 830px) {
+  body {
+    zoom: 0.455;
+  }
+
   nav {
     display: block;
     height: 100%;
