@@ -535,25 +535,52 @@ header h1 {
 }
 
 @media (max-width: 450px) {
+  .nav {
+    height: 1000px;
+  }
+
+  .items {
+    font-size: 2em;
+  }
+
+  .items::before {
+    width: 400px;
+    height: 200px;
+  }
+
+  .items:hover::before {
+    transform: translateY(-400px);
+    -webkit-transform: translateY(-400px);
+    -moz-transform: translateY(-400px);
+    -ms-transform: translateY(-400px);
+    -o-transform: translateY(-400px);
+  }
+
   .slider {
     height: 700px;
   }
+
   .visible-space {
     height: 700px;
   }
+
   .wrapper {
     width: 500px;
   }
+
   .wrapper img {
-    width: 425px;
+    width: 460px;
     height: 530px;
   }
+
   .text-slide {
-    width: 425px;
+    width: 460px;
   }
+
   .text-slide p {
     font-size: 1.5em;
   }
+
   .text-slide-active {
     bottom: 120px;
   }
