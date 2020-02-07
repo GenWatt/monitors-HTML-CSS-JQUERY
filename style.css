@@ -350,10 +350,6 @@ header h1 {
 }
 
 @media (max-width: 830px) {
-  body {
-    zoom: 0.455;
-  }
-
   nav {
     display: block;
     height: 100%;
@@ -542,6 +538,10 @@ header h1 {
 }
 
 @media (max-width: 450px) {
+  body {
+    zoom: 0.455;
+  }
+
   .nav {
     height: 1000px;
   }
