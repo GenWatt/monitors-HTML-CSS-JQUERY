@@ -39,54 +39,72 @@
               <img src="img/monitor1.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 2</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
             <div class="wrapper">
               <img src="img/monitor2.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 3</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
             <div class="wrapper">
               <img src="img/monitor3.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 4</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
             <div class="wrapper">
               <img src="img/monitor3.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 5</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
             <div class="wrapper">
               <img src="img/monitor3.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 6</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
             <div class="wrapper">
               <img src="img/monitor3.webp" alt="monitor" />
               <div class="text-slide">
                 <h1>Slide 7</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, temporibus. Et saepe modi similique
-                  quasi expedita enim praesentium nemo pariatur animi! Fugiat corporis sapiente amet id quibusdam nemo
-                  saepe dignissimos.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Culpa, temporibus. Et saepe modi similique quasi expedita
+                  enim praesentium nemo pariatur animi! Fugiat corporis
+                  sapiente amet id quibusdam nemo saepe dignissimos.
+                </p>
               </div>
             </div>
           </div>
@@ -116,7 +134,9 @@
     const wrapper = $(".wrapper");
     const images = $(".wrapper img");
     const activeDot = $(".active-dot");
-    const slideText = $(".text-slide");
+    const slideTextConteiner = $(".text-slide");
+    const slideTextHeader = $(".text-slide h1");
+    const slideText = $(".text-slide p");
     let currentSlide = Math.floor($(`.wrapper img`).length / 2);
     const wrapperWidth = wrapper[0].getBoundingClientRect().width;
 
@@ -129,7 +149,9 @@
       div.className = "dots";
       div.id = `${index + 1}`;
 
-      $(wrapper[index]).css("left", `${wrapperWidth * index}px`);
+      $(wrapper[index]).animate({
+        left: `${wrapperWidth * index}px`
+      }, 500);
       activeSlide.append(div);
     });
     /* -----------------------------*/
@@ -149,10 +171,18 @@
     const changeSlide = (moveRange, currentSlide) => {
       images.addClass("side-img");
       images[currentSlide].className = "middle";
+
+      slideTextConteiner.removeClass("text-slide-conteiner-active");
       slideText.removeClass("text-slide-active");
+      $(slideTextHeader).removeClass("text-slide-header")
+
+      $(slideTextHeader[currentSlide]).addClass("text-slide-header")
+      $(slideTextConteiner[currentSlide]).addClass("text-slide-conteiner-active");
       $(slideText[currentSlide]).addClass("text-slide-active");
+
       imgConteiner.css("left", `${-moveRange}px`);
       changeDot(dots[currentSlide].offsetLeft);
+
       if (currentSlide >= images.length - 1) {
         nextSlide.css("transform", "scaleY(0)");
         prevSlide.css("transform", "scaleY(1)");
@@ -165,10 +195,12 @@
       }
     };
 
-    changeSlide(
-      wrapper[currentSlide].offsetLeft - wrapperWidth / 4,
-      currentSlide
-    );
+    setTimeout(() => {
+      changeSlide(
+        wrapper[currentSlide].offsetLeft - wrapperWidth / 4,
+        currentSlide
+      );
+    }, 500);
     /* -----------------------------*/
 
     /* Next slide function*/
@@ -212,24 +244,41 @@
 
     changeDot(dots[currentSlide].offsetLeft);
     /* -----------------------------*/
-    /*change slide by draging*/
+    /*change slide by dragging*/
+
     $(".visible-space").on("dragstart", e => {
       let isChangingSlide = false;
       const xStart = e.pageX;
-
-      $(".visible-space").css("cursor", "grabing");
       $(".visible-space").on("dragend", e => {
         const xEnd = e.pageX;
-
         if (xStart + 70 < xEnd && !isChangingSlide) {
-          nextSlideFunc();
           isChangingSlide = true;
+          nextSlideFunc();
         } else if (!isChangingSlide && xStart > xEnd + 70) {
           isChangingSlide = true;
           prevSlideFunc();
         } else if (!isChangingSlide) isChangingSlide = true;
       });
     });
+    /* -----------------------------*/
+    const onscroll = true;
+
+    /*change slide by touching (For mobile)*/
+    $(".visible-space").on("touchstart", (e) => {
+      let isChangingSlide = false
+      const moveStartX = e.targetTouches[0].pageX;
+      $(".visible-space").on("touchend", (e) => {
+        const moveEndX = e.changedTouches[0].pageX;
+
+        if (moveStartX + 30 < moveEndX && !isChangingSlide) {
+          isChangingSlide = true;
+          nextSlideFunc();
+        } else if (moveStartX > moveEndX + 30 && !isChangingSlide) {
+          isChangingSlide = true;
+          prevSlideFunc();
+        } else if (!isChangingSlide) isChangingSlide = true;
+      })
+    })
     /* -----------------------------*/
     /*change position of active dot when window resize*/
     const resizePosition = () => {
