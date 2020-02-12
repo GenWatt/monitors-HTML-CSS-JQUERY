@@ -1,18 +1,153 @@
-body {
+body,
+html {
   background-image: linear-gradient(black, grey);
   color: rgb(235, 220, 220);
-  height: 200vh;
   font-family: "Courier New", Courier, monospace;
-  width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  cursor: none;
 }
 
 :focus {
   outline: none;
 }
 
+/*cursor design*/
+#cursor {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  pointer-events: none;
+  z-index: 1000000;
+  transform: translate(-50%, -50%);
+}
+
+#cursor.cursor-design {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  background-color: cornsilk;
+  width: 5px;
+  height: 20px;
+  box-shadow: 0 0 3px 3px rgb(124, 122, 122);
+}
+
+#arrow {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+}
+
+#arrow.cursor {
+  background-color: cornsilk;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 3px 3px rgb(124, 122, 122);
+  transform: translateX(-50%) rotate(45deg);
+  -webkit-transform: translateX(-50%) rotate(45deg);
+  -moz-transform: translateX(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) rotate(45deg);
+  -o-transform: translateX(-50%) rotate(45deg);
+}
+
+#cursor i {
+  display: none;
+}
+
+#cursor.cursor-drag i {
+  display: block;
+  font-size: 2.5em;
+  color: cornflowerblue;
+  animation: scale-arrows 2s ease-in-out infinite;
+  -webkit-animation: scale-arrows 2s ease-in-out infinite;
+}
+
+#cursor.cursor-drag::before {
+  content: "Drag";
+  font-size: 1.1em;
+  font-weight: bold;
+  color: rgb(0, 88, 252);
+}
+
+@keyframes scale-arrows {
+  0% {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  75% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+
+#arrow.rotate {
+  animation: rotate-arrow 1s ease-in-out infinite;
+  -webkit-animation: rotate-arrow 1s ease-in-out infinite;
+}
+
+@keyframes rotate-arrow {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+    -webkit-transform: translateX(-50%) rotate(0deg);
+    -moz-transform: translateX(-50%) rotate(0deg);
+    -ms-transform: translateX(-50%) rotate(0deg);
+    -o-transform: translateX(-50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(180deg);
+    -webkit-transform: translateX(-50%) rotate(180deg);
+    -moz-transform: translateX(-50%) rotate(180deg);
+    -ms-transform: translateX(-50%) rotate(180deg);
+    -o-transform: translateX(-50%) rotate(180deg);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(360deg);
+    -webkit-transform: translateX(-50%) rotate(360deg);
+    -moz-transform: translateX(-50%) rotate(360deg);
+    -ms-transform: translateX(-50%) rotate(360deg);
+    -o-transform: translateX(-50%) rotate(360deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+    -webkit-transform: translateX(-50%) rotate(360deg);
+    -moz-transform: translateX(-50%) rotate(360deg);
+    -ms-transform: translateX(-50%) rotate(360deg);
+    -o-transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/*---------------*/
+
+/*nav logo design*/
 nav {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -55,10 +190,6 @@ nav {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   transition: background-color 0.3s ease-in, box-shadow 0.4s ease-in-out 0.1s,
     transform 0.3s ease-out;
@@ -145,6 +276,17 @@ nav {
   -o-transform: translate(-50%, -50%) rotate(-20deg);
 }
 
+.items a {
+  color: white;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+}
+
 .mobile-view-nav {
   transform: translateX(500px);
   opacity: 0;
@@ -154,12 +296,19 @@ nav {
   -o-transform: translateX(500px);
 }
 
+/*---------------*/
+
 header h1 {
   text-align: center;
   text-transform: uppercase;
   font-size: 4em;
   margin-top: 100px;
   text-shadow: 4px 4px 3px rgb(119, 117, 117), 6px 6px 3px rgb(160, 157, 157);
+}
+
+/*slider design*/
+.slider-section {
+  height: 100vh;
 }
 
 .slider {
@@ -175,7 +324,6 @@ header h1 {
   position: relative;
   overflow: hidden;
   margin: auto auto;
-  cursor: grab;
 }
 
 .img-conteiner {
@@ -297,7 +445,10 @@ header h1 {
   opacity: 1;
 }
 
-.middle {
+/*-----------------------*/
+
+/*Classes to active and unactive slide*/
+.active-slide {
   transform: scaleY(1.1) translateY(20px);
   -webkit-transform: scaleY(1.1) translateY(20px);
   -moz-transform: scaleY(1.1) translateY(20px);
@@ -313,6 +464,8 @@ header h1 {
   -o-transform: translateY(20px);
 }
 
+/*-----------------------*/
+/*buttons to change slide*/
 .slide-btn-design {
   position: absolute;
   transform: translateY(-50%);
@@ -333,6 +486,7 @@ header h1 {
   justify-content: center;
   align-items: center;
   font-size: 1.6em;
+  cursor: none;
   opacity: 0.5;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
@@ -340,7 +494,6 @@ header h1 {
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  cursor: pointer;
   color: beige;
   border: 1px rgb(202, 191, 191) solid;
 }
@@ -362,6 +515,7 @@ header h1 {
     -ms-transform: translateX(0) scaleY(1);
     -o-transform: translateX(0) scaleY(1);
   }
+
   50% {
     transform: translateX(5px) scaleY(0.9);
     -webkit-transform: translateX(5px) scaleY(0.9);
@@ -369,6 +523,7 @@ header h1 {
     -ms-transform: translateX(5px) scaleY(0.9);
     -o-transform: translateX(5px) scaleY(0.9);
   }
+
   75% {
     transform: translateX(-2px) scaleY(1.1);
     -webkit-transform: translateX(-2px) scaleY(1.1);
@@ -376,6 +531,7 @@ header h1 {
     -ms-transform: translateX(-2px) scaleY(1.1);
     -o-transform: translateX(-2px) scaleY(1.1);
   }
+
   100% {
     transform: translateX(0) scaleY(1);
     -webkit-transform: translateX(0) scaleY(1);
@@ -407,6 +563,7 @@ header h1 {
     -ms-transform: translateX(0) scaleY(1);
     -o-transform: translateX(0) scaleY(1);
   }
+
   50% {
     transform: translateX(-5px) scaleY(0.9);
     -webkit-transform: translateX(-5px) scaleY(0.9);
@@ -414,6 +571,7 @@ header h1 {
     -ms-transform: translateX(-5px) scaleY(0.9);
     -o-transform: translateX(-5px) scaleY(0.9);
   }
+
   75% {
     transform: translateX(5px), scaleY(1.1);
     -webkit-transform: translateX(5px), scaleY(1.1);
@@ -421,6 +579,7 @@ header h1 {
     -ms-transform: translateX(5px), scaleY(1.1);
     -o-transform: translateX(5px), scaleY(1.1);
   }
+
   100% {
     transform: translateX(0) scaleY(1);
     -webkit-transform: translateX(0) scaleY(1);
@@ -430,6 +589,8 @@ header h1 {
   }
 }
 
+/*-----------------------*/
+/*Dots to navigate slider*/
 .slide-nav {
   display: flex;
   justify-content: center;
@@ -451,7 +612,6 @@ header h1 {
   -o-border-radius: 50%;
   margin-left: 30px;
   margin-bottom: 10px;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -464,7 +624,7 @@ header h1 {
 }
 
 .active-dot {
-  background-color: rgb(57, 80, 13);
+  background-color: rgb(124, 124, 124);
   box-shadow: 0 0 5px 5px rgb(223, 214, 214);
   width: 20px;
   height: 20px;
@@ -475,7 +635,6 @@ header h1 {
   -o-border-radius: 50%;
   transform: translate(15%, 10%);
   position: absolute;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -496,7 +655,91 @@ header h1 {
   box-shadow: none;
 }
 
+/*-----------------------*/
+/*time to change slide design*/
+.path {
+  width: 450px;
+  position: absolute;
+  bottom: 8%;
+  height: 5px;
+  background-color: rgb(36, 31, 31);
+}
+
+.timer-slide-change {
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+  background-image: linear-gradient(45deg, rgb(0, 0, 0), lightgrey);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.timer-slide-change.active-slide-timer {
+  transition: width 4.2s ease-in-out;
+  -webkit-transition: width 4.2s ease-in-out;
+  -moz-transition: width 4.2s ease-in-out;
+  -ms-transition: width 4.2s ease-in-out;
+  -o-transition: width 4.2s ease-in-out;
+  width: 100%;
+  box-shadow: 0 0 3px 3px grey;
+}
+
+/*-----------------------*/
+
+/*content section*/
+.specification-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.specification {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 700px 300px;
+  margin: 100px 50px 0px 50px;
+}
+
+.description {
+  background-color: rgb(111, 116, 116);
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.description h2 {
+  text-align: center;
+}
+
+.description p {
+  text-align: justify;
+}
+
+.description-img {
+  max-width: 300px;
+  height: 300px;
+  position: relative;
+  left: -100px;
+  top: -80px;
+}
+
 @media (max-width: 830px) {
+  body {
+    cursor: initial;
+  }
+
+  #cursor {
+    display: none;
+  }
+
+  /*mobile nav*/
   nav {
     display: block;
     height: 100%;
@@ -672,17 +915,36 @@ header h1 {
   .nav-active-long-line {
     opacity: 0;
   }
+
+  .slider-section {
+    height: 80vh;
+  }
+
+  .specification {
+    grid-template-columns: 550px 230px;
+    margin: 100px 5px 0px 30px;
+    width: 90%;
+  }
+
+  .description-img {
+    left: -200px;
+    top: -80px;
+  }
+
+  /*-----------------------*/
 }
 
 @media (max-width: 450px) {
+
   body {
     zoom: 0.455;
   }
 
   .nav {
-    height: 1000px;
+    height: 100vh;
   }
 
+  /*responsive slider*/
   .items {
     font-size: 2em;
   }
@@ -704,6 +966,10 @@ header h1 {
     -o-transform: translateY(30px);
   }
 
+  .path {
+    bottom: 12%;
+  }
+
   .wrapper img {
     width: 460px;
     height: 530px;
@@ -713,11 +979,15 @@ header h1 {
     width: 460px;
   }
 
+  .text-slide-conteiner-active {
+    bottom: 120px;
+  }
+
   .text-slide p {
     font-size: 1.5em;
   }
 
-  .text-slide-active {
-    bottom: 120px;
-  }
+
+
+  /*-----------------------*/
 }
