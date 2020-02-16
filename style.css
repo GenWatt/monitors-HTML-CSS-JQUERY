@@ -1,11 +1,12 @@
-body,
-html {
+html,
+body {
   background-image: linear-gradient(black, grey);
   color: rgb(235, 220, 220);
   font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   cursor: none;
 }
 
@@ -695,11 +696,14 @@ header h1 {
 }
 
 .specification {
-  position: relative;
+  margin-left: 10px;
+  margin-top: 80px;
+}
+
+.conteiner {
   width: 100%;
   display: grid;
-  grid-template-columns: 700px 300px;
-  margin: 100px 50px 0px 50px;
+  grid-template-columns: 700px 1px;
 }
 
 .description {
@@ -724,10 +728,11 @@ header h1 {
 
 .description-img {
   max-width: 300px;
+  min-width: 200px;
   height: 300px;
   position: relative;
-  left: -100px;
-  top: -80px;
+  left: -160px;
+  top: -60px;
 }
 
 @media (max-width: 830px) {
@@ -920,37 +925,64 @@ header h1 {
     height: 80vh;
   }
 
-  .specification {
-    grid-template-columns: 550px 230px;
-    margin: 100px 5px 0px 30px;
+  header h1 {
     width: 90%;
+    margin: auto auto;
+    font-size: 4em;
+  }
+
+  .specification {
+    margin-left: 40px;
+  }
+
+  .conteiner {
+    grid-template-columns: 400px 1px;
   }
 
   .description-img {
-    left: -200px;
-    top: -80px;
+    width: 250px;
+    height: 250px;
   }
-
   /*-----------------------*/
 }
 
-@media (max-width: 450px) {
-
-  body {
-    zoom: 0.455;
+@media (max-width: 690px) {
+  .slider {
+    zoom: 0.65;
   }
 
+  .slider-section {
+    height: 55vh;
+  }
+
+  header h1 {
+    font-size: 3em;
+  }
+
+  .description-img {
+    left: -320px;
+  }
+}
+
+@media (max-width: 470px) {
   .nav {
-    height: 100vh;
+    height: 50%;
   }
 
   /*responsive slider*/
   .items {
-    font-size: 2em;
+    font-size: 1em;
+    height: 100px;
+    position: relative;
+  }
+
+  .slider-section {
+    height: 65vh;
   }
 
   .slider {
     height: 700px;
+    zoom: 0.55;
   }
 
   .visible-space {
@@ -987,7 +1019,50 @@ header h1 {
     font-size: 1.5em;
   }
 
+  header h1 {
+    font-size: 2.5em;
+  }
 
+  .specification {
+    margin-left: 10px;
+    margin-top: 120px;
+  }
 
-  /*-----------------------*/
+  .conteiner {
+    grid-template-columns: 400px;
+  }
+
+  .description-img {
+    top: -250%;
+    left: 20%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+
+/*-----------------------*/
+@media (max-width: 410px) {
+  .slider {
+    zoom: 0.45;
+  }
+
+  .specification {
+    margin-left: 0;
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 280px;
+    justify-content: center;
+  }
+
+  .conteiner {
+    grid-template-columns: 280px;
+  }
+
+  .description-img {
+    top: -320%;
+    left: 5%;
+  }
 }
