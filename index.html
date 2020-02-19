@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Monitors</title>
   <link rel="stylesheet" href="./style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
-<body style="overflow-x: hidden;">
+<body>
   <div>
     <nav class="nav-close">
       <div class="logo"></div>
@@ -151,7 +150,7 @@
                 Deleniti assumenda alias modi!
               </p>
             </div>
-            <img src="img/monitor1.webp" alt="monitor" class="description-img" />
+            <img src="img/monitor2.webp" alt="monitor" class="description-img second" />
           </div>
         </section>
       </article>
@@ -160,7 +159,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/61630affa7.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery.resizeend@latest/lib/jquery.resizeend.min.js"></script>
-
   <script>
     $(document).ready(() => {
       const imgConteiner = $(".img-conteiner");
@@ -387,8 +385,9 @@
         isNavHide = !isNavHide;
       });
 
+      const navItems = $(".nav li");
+
       const itemsAnimation = hideShow => {
-        const navItems = $(".nav li");
         let duration = 100;
 
         navItems.each(index => {
@@ -456,7 +455,6 @@
 
       /*Onload animation*/
       const onloadAnimation = () => {
-        const navItems = $(".nav li");
         let duration = 300;
 
         navItems.each(index => {
@@ -498,33 +496,34 @@
             top: "10px"
           }, 300)
         }
-        onScrollAnimation(e);
+        onScrollAnimation();
       })
 
       setInterval(() => {
         if (isScroll && $(window).width() > 830) {
           isScroll = false;
         } else {
-          $(".nav li").stop();
+          navItems.stop();
         }
       }, 20);
 
-      const onScrollAnimation = (e) => {
-
+      const onScrollAnimation = () => {
         $(".description").each((i, desc) => {
           const descriptionPos = $(desc).offset().top;
+          const descriptionHeight = $(desc).height();
 
-          if (descriptionPos <= window.scrollY + window.innerHeight) {
+          if (descriptionPos <= window.scrollY + window.innerHeight && descriptionHeight + descriptionPos +
+            (window.innerHeight / 1.2) >=
+            window.scrollY + window.innerHeight) {
             $(desc).addClass("description-show");
-            $(".description-img").addClass("description-img-show");
-            $(".description p").css("transform", "scaleY(1)")
+            $(desc).next().addClass("description-img-show");
+            $(desc).find("p").css("transform", "scaleY(1)")
           } else {
             $(desc).removeClass("description-show");
-
-            $(".description p").css("transform", "scaleY(0)")
+            $(desc).next().removeClass("description-img-show");
+            $(desc).find("p").css("transform", "scaleY(0)")
           }
         })
-
       }
 
       onScrollAnimation();
