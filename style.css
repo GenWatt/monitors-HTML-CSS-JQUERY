@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   cursor: none;
 }
 
@@ -714,15 +714,19 @@ header h1 {
 }
 
 .specification {
-  margin-left: 10px;
   margin-top: 80px;
   display: grid;
   grid-template-rows: 500px;
   place-items: center;
 }
 
+.specification:nth-child(odd) {
+  margin-left: 10px;
+}
+
 .specification:nth-child(even) {
   float: right;
+  margin-right: 10px;
 }
 
 .conteiner {
@@ -814,8 +818,8 @@ header h1 {
   -o-transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
 }
 
-.conteiner .description-img:last-child {
-  left: -500px;
+.description-img.second {
+  left: -860px;
 }
 /*--------------------*/
 
@@ -1027,6 +1031,10 @@ header h1 {
     width: 250px;
     height: 250px;
   }
+
+  .description-img.second {
+    left: -500px;
+  }
   /*-----------------------*/
 }
 
@@ -1113,18 +1121,28 @@ header h1 {
     justify-content: center;
   }
 
+  .specification:nth-child(even) {
+    float: none;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
   .conteiner {
     grid-template-columns: 400px;
   }
 
   .description-img {
     top: -250%;
-    left: 20%;
+    left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+  }
+
+  .description-img.second {
+    left: 50%;
   }
 }
 
