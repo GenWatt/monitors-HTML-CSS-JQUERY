@@ -12,7 +12,7 @@
 <body>
   <div>
     <nav class="nav-close">
-      <div class="logo"></div>
+      <div class="nav-logo"></div>
       <ul class="nav ">
         <li class="items"><a href="#">Budżetowe</a></li>
         <li class="items"><a href="#">Dla graczy</a></li>
@@ -105,8 +105,8 @@
       <article>
         <section class="specification">
           <div class="conteiner">
-            <div class="description">
-              <h2>Ekran 24 cale!</h2>
+            <div class="description description-left">
+              <h2>Mały Telewizor</h2>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
                 nesciunt consectetur accusamus ab optio animi sapiente molestiae
@@ -114,24 +114,23 @@
                 Voluptatibus labore laudantium nemo id. Optio, praesentium illo
                 excepturi ratione cumque vitae consequuntur molestiae unde quam
                 aliquam, eaque ipsa, labore et. Quia id ipsam, neque minima
-                nihil ullam harum amet possimus commodi soluta laborum
-                laudantium? Inventore quia similique vero? In, excepturi maiores
-                repellendus veritatis odit officiis, esse nesciunt quam iure
-                magnam eos. Ducimus ullam veritatis est nostrum molestias?
-                Dolorem excepturi, sit quae eum dicta corrupti. Aspernatur
-                doloremque sit, quos consequatur repellat excepturi quis nihil
-                neque, temporibus omnis unde rem ducimus corporis adipisci.
-                Vitae animi dignissimos odit at beatae inventore esse quisquam!
-                Deleniti assumenda alias modi!
               </p>
+              <h2>Top 4</h2>
+              <ul>
+                <li class="specification-items-hide">24"</li>
+                <li class="specification-items-hide">IPS</li>
+                <li class="specification-items-hide">FullHD</li>
+                <li class="specification-items-hide">SmartTV</li>
+              </ul>
+              <p class="price">Cena:<span>1000zł</span></p>
             </div>
-            <img src="img/monitor1.webp" alt="monitor" class="description-img" />
+            <img src="img/monitor1.webp" alt="monitor" class="description-img frist" />
           </div>
         </section>
         <section class="specification">
           <div class="conteiner">
-            <div class="description">
-              <h2>Ekran 24 cale!</h2>
+            <div class="description description-right">
+              <h2>Ekran 40 cali!</h2>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
                 nesciunt consectetur accusamus ab optio animi sapiente molestiae
@@ -139,18 +138,41 @@
                 Voluptatibus labore laudantium nemo id. Optio, praesentium illo
                 excepturi ratione cumque vitae consequuntur molestiae unde quam
                 aliquam, eaque ipsa, labore et. Quia id ipsam, neque minima
-                nihil ullam harum amet possimus commodi soluta laborum
-                laudantium? Inventore quia similique vero? In, excepturi maiores
-                repellendus veritatis odit officiis, esse nesciunt quam iure
-                magnam eos. Ducimus ullam veritatis est nostrum molestias?
-                Dolorem excepturi, sit quae eum dicta corrupti. Aspernatur
-                doloremque sit, quos consequatur repellat excepturi quis nihil
-                neque, temporibus omnis unde rem ducimus corporis adipisci.
-                Vitae animi dignissimos odit at beatae inventore esse quisquam!
-                Deleniti assumenda alias modi!
               </p>
+              <h2>Top 4</h2>
+              <ul>
+                <li class="specification-items-hide">4K</li>
+                <li class="specification-items-hide">OLED</li>
+                <li class="specification-items-hide">HDR10</li>
+                <li class="specification-items-hide">SmartTV</li>
+              </ul>
+              <p class="price">Cena:<span>4000zł</span></p>
             </div>
             <img src="img/monitor2.webp" alt="monitor" class="description-img second" />
+          </div>
+        </section>
+        <section class="specification">
+          <div class="conteiner">
+            <div class="description description-right">
+              <h2>Przyzwoite głośniki!</h2>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
+                nesciunt consectetur accusamus ab optio animi sapiente molestiae
+                eligendi, omnis sed expedita nemo pariatur adipisci in.
+                Voluptatibus labore laudantium nemo id. Optio, praesentium illo
+                excepturi ratione cumque vitae consequuntur molestiae unde quam
+                aliquam, eaque ipsa, labore et. Quia id ipsam, neque minima
+              </p>
+              <h2>Top 4</h2>
+              <ul>
+                <li class="specification-items-hide">Dolby Atmos</li>
+                <li class="specification-items-hide">OLED</li>
+                <li class="specification-items-hide">HI-FI</li>
+                <li class="specification-items-hide">SmartTV</li>
+              </ul>
+              <p class="price">Cena:<span>2000zł</span></p>
+            </div>
+            <img src="img/monitor3.webp" alt="monitor" class="description-img frist" />
           </div>
         </section>
       </article>
@@ -381,6 +403,7 @@
         shortLine.toggleClass("nav-active-short-line");
         mediumLine.toggleClass("nav-active-medium-line");
         longLine.toggleClass("nav-active-long-line");
+        $(".nav-logo").toggleClass("nav-logo-open");
         itemsAnimation();
         isNavHide = !isNavHide;
       });
@@ -431,11 +454,11 @@
         });
       });
 
-      $("a,.dots,.slide-btn-design").on("mouseover", () => {
+      $("a,.dots,.slide-btn-design,.nav-logo").on("mouseover", () => {
         $("#arrow").addClass("rotate");
       });
 
-      $("a,.dots,.slide-btn-design").on("mouseleave", () => {
+      $("a,.dots,.slide-btn-design,.nav-logo").on("mouseleave", () => {
         $("#arrow").removeClass("rotate");
       });
 
@@ -466,9 +489,7 @@
           }, duration * index);
         })
 
-        $(".logo").css({
-          transform: "rotateY(0)scaleY(1)perspective(5000px)"
-        })
+        $(".nav-logo").addClass("nav-logo-onload-animation");
       }
 
       onloadAnimation();
@@ -511,17 +532,30 @@
         $(".description").each((i, desc) => {
           const descriptionPos = $(desc).offset().top;
           const descriptionHeight = $(desc).height();
+          const windowHeightBottom = window.scrollY + window.innerHeight;
+          const heightWhenAnimationReverse = descriptionPos + descriptionHeight + (window.innerHeight / 1.2);
 
-          if (descriptionPos <= window.scrollY + window.innerHeight && descriptionHeight + descriptionPos +
-            (window.innerHeight / 1.2) >=
-            window.scrollY + window.innerHeight) {
+          if (descriptionPos <= windowHeightBottom && heightWhenAnimationReverse >=
+            windowHeightBottom) {
             $(desc).addClass("description-show");
             $(desc).next().addClass("description-img-show");
             $(desc).find("p").css("transform", "scaleY(1)")
+            $(desc).find("li").each((index, el) => {
+              setTimeout(() => {
+                $(el).addClass("specification-items-show");
+              }, 100 * index);
+            })
+            $(desc).find(".price").addClass("price-show");
           } else {
             $(desc).removeClass("description-show");
             $(desc).next().removeClass("description-img-show");
             $(desc).find("p").css("transform", "scaleY(0)")
+            $(desc).find("li").each((index, el) => {
+              setTimeout(() => {
+                $(el).removeClass("specification-items-show");
+              }, 100 * index);
+            });
+            $(desc).find(".price").removeClass("price-show");
           }
         })
       }
