@@ -7,14 +7,42 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  cursor: none !important;
+  cursor: none;
   max-width: 100%;
 }
 
 :focus {
   outline: none;
 }
+/*scrollbar design*/
+::-webkit-scrollbar {
+  width: 0;
+}
 
+.scrollbar-path {
+  width: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1000000;
+}
+
+.scrollbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-image: radial-gradient(rgb(252, 164, 0), rgb(172, 112, 0));
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  z-index: 100000;
+}
+/*-------------*/
 /*cursor design*/
 #cursor {
   position: absolute;
@@ -364,6 +392,16 @@ nav {
   -o-transform: translateX(500px);
 }
 /*--------------------*/
+/*nav-scrollbar design*/
+.nav-scrollbar {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  background-color: rgb(255, 138, 43);
+  height: 1px;
+  box-shadow: 0 0 1px 1px rgb(243, 147, 68);
+}
+/*---------------------*/
 /*--------------------*/
 main {
   overflow: hidden;
@@ -900,6 +938,7 @@ header h1 {
   -webkit-animation: price-show-animate 0.6s
     cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
 }
+
 @keyframes price-show-animate {
   0% {
     transform: scaleX(0);
