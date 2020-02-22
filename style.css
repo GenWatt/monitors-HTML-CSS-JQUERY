@@ -1362,6 +1362,10 @@ footer {
   header h1 {
     font-size: 2.5em;
   }
+  
+  .product-info{
+    margin-top:300px
+  }
 
   .specification {
     margin-left: 0;
