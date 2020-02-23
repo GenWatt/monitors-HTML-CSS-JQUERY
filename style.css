@@ -14,6 +14,7 @@ body {
 :focus {
   outline: none;
 }
+
 /*scrollbar design*/
 ::-webkit-scrollbar {
   width: 0;
@@ -42,6 +43,7 @@ body {
   -o-border-radius: 5px;
   z-index: 100000;
 }
+
 /*-------------*/
 /*cursor design*/
 #cursor {
@@ -195,6 +197,7 @@ nav {
   width: 100%;
   z-index: 1100;
 }
+
 /*logo styles*/
 .nav-logo {
   background-image: url("img/DEVadrian.png");
@@ -235,6 +238,7 @@ nav {
     -ms-transform: skewX(0) scale(1);
     -o-transform: skewX(0) scale(1);
   }
+
   33% {
     transform: skewX(-15deg) scale(0.9);
     -webkit-transform: skewX(-15deg) scale(0.9);
@@ -242,6 +246,7 @@ nav {
     -ms-transform: skewX(-15deg) scale(0.9);
     -o-transform: skewX(-15deg) scale(0.9);
   }
+
   66% {
     transform: skewX(15deg) scale(1.1);
     -webkit-transform: skewX(15deg) scale(1.1);
@@ -249,6 +254,7 @@ nav {
     -ms-transform: skewX(15deg) scale(1.1);
     -o-transform: skewX(15deg) scale(1.1);
   }
+
   100% {
     transform: skewX(0) scale(1);
     -webkit-transform: skewX(0) scale(1);
@@ -257,6 +263,7 @@ nav {
     -o-transform: skewX(0) scale(1);
   }
 }
+
 /*--------------------*/
 /*nav styles*/
 .nav {
@@ -399,6 +406,7 @@ nav {
   -ms-transform: translateX(500px);
   -o-transform: translateX(500px);
 }
+
 /*--------------------*/
 /*nav-scrollbar design*/
 .nav-scrollbar {
@@ -409,6 +417,7 @@ nav {
   height: 1px;
   box-shadow: 0 0 1px 1px rgb(243, 147, 68);
 }
+
 /*---------------------*/
 /*--------------------*/
 main {
@@ -773,6 +782,7 @@ header h1 {
   -o-transform: scale(0.7);
   box-shadow: none;
 }
+
 /*-----------------------*/
 
 /*time to change slide design*/
@@ -804,6 +814,7 @@ header h1 {
   width: 100%;
   box-shadow: 0 0 3px 3px grey;
 }
+
 /*-----------------------*/
 /*content section*/
 .specification-header {
@@ -944,10 +955,8 @@ header h1 {
 }
 
 .price-show {
-  animation: price-show-animate 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-    0.4s;
-  -webkit-animation: price-show-animate 0.6s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+  animation: price-show-animate 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+  -webkit-animation: price-show-animate 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
 }
 
 @keyframes price-show-animate {
@@ -958,6 +967,7 @@ header h1 {
     -ms-transform: scaleX(0);
     -o-transform: scaleX(0);
   }
+
   50% {
     transform: scaleX(0.5);
     -webkit-transform: scaleX(0.5);
@@ -965,6 +975,7 @@ header h1 {
     -ms-transform: scaleX(0.5);
     -o-transform: scaleX(0.5);
   }
+
   70% {
     transform: scaleX(1.05);
     -webkit-transform: scaleX(1.05);
@@ -972,6 +983,7 @@ header h1 {
     -ms-transform: scaleX(1.05);
     -o-transform: scaleX(1.05);
   }
+
   90% {
     transform: scaleX(1.05);
     -webkit-transform: scaleX(1.05);
@@ -979,6 +991,7 @@ header h1 {
     -ms-transform: scaleX(1.05);
     -o-transform: scaleX(1.05);
   }
+
   100% {
     transform: scaleX(1);
     -webkit-transform: scaleX(1);
@@ -987,6 +1000,7 @@ header h1 {
     -o-transform: scaleX(1);
   }
 }
+
 .price span {
   color: rgb(255, 136, 0);
   font-size: 1.6em;
@@ -1001,14 +1015,10 @@ header h1 {
   opacity: 0;
   box-shadow: 0 0 3px 3px whitesmoke;
   transform: translateY(150px) rotateY(60deg) rotateX(30deg) perspective(5000px);
-  -webkit-transform: translateY(150px) rotateY(60deg) rotateX(30deg)
-    perspective(5000px);
-  -moz-transform: translateY(150px) rotateY(60deg) rotateX(30deg)
-    perspective(5000px);
-  -ms-transform: translateY(150px) rotateY(60deg) rotateX(30deg)
-    perspective(5000px);
-  -o-transform: translateY(150px) rotateY(60deg) rotateX(30deg)
-    perspective(5000px);
+  -webkit-transform: translateY(150px) rotateY(60deg) rotateX(30deg) perspective(5000px);
+  -moz-transform: translateY(150px) rotateY(60deg) rotateX(30deg) perspective(5000px);
+  -ms-transform: translateY(150px) rotateY(60deg) rotateX(30deg) perspective(5000px);
+  -o-transform: translateY(150px) rotateY(60deg) rotateX(30deg) perspective(5000px);
   transition: opacity 0.3s ease-in-out 0.2s, transform 0.5s ease-in 0.3s;
   -webkit-transition: opacity 0.3s ease-in-out 0.2s, transform 0.5s ease-in 0.3s;
   -moz-transition: opacity 0.3s ease-in-out 0.2s, transform 0.5s ease-in 0.3s;
@@ -1032,8 +1042,7 @@ header h1 {
 .description-img-show {
   opacity: 1;
   transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
-  -webkit-transform: translateY(0) rotateY(0deg) rotateX(0deg)
-    perspective(5000px);
+  -webkit-transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
   -moz-transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
   -ms-transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
   -o-transform: translateY(0) rotateY(0deg) rotateX(0deg) perspective(5000px);
@@ -1051,6 +1060,7 @@ footer {
   padding: 5px;
   background-color: rgb(56, 53, 53);
 }
+
 /*--------------------*/
 
 @media (max-width: 840px) {
@@ -1285,6 +1295,7 @@ footer {
   .description-img.second {
     left: -500px;
   }
+
   /*-----------------------*/
 }
 
@@ -1362,9 +1373,9 @@ footer {
   header h1 {
     font-size: 2.5em;
   }
-  
-  .products-info{
-    margin-top:300px
+
+  .products-info {
+    margin-top: 300px;
   }
 
   .specification {
@@ -1388,7 +1399,7 @@ footer {
     grid-template-columns: 400px;
   }
 
-  .description-img {
+  .description-img.description-img-show {
     top: -250%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -1417,6 +1428,7 @@ footer {
   .slider {
     zoom: 0.45;
   }
+
   .specification {
     grid-template-columns: 280px;
   }
