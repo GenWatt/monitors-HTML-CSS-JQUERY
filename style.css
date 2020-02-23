@@ -858,6 +858,7 @@ header h1 {
   -o-border-radius: 10px;
   z-index: 1;
   opacity: 0;
+  position: relative;
   text-align: center;
   color: bisque;
   transition: opacity 0.3s ease-in-out, transform 0.5s ease-in;
@@ -1065,7 +1066,7 @@ footer {
 
 @media (max-width: 840px) {
   body {
-    cursor: initial;
+    cursor: auto;
   }
 
   #cursor {
